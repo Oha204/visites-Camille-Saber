@@ -21,3 +21,9 @@ def test_metrics_counts_requests(client):
     body = client.get("/metrics").text
     assert 'http_requests_total{method="GET",path="/",status="200"}' in body
     assert "http_request_duration_seconds" in body
+
+def test_root_has_version_header(client):
+    resp = client.get("/")
+
+    assert resp.status_code == 200
+    assert resp.headers["X-Visites-Version"] == "0.1.0"
