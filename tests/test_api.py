@@ -35,3 +35,9 @@ def test_reset_visits(client):
 
     # Vérifie que le compteur repart de "1" après le reset
     assert client.get("/").json() == {"visites": 1}
+def test_root_has_version_header(client):
+    resp = client.get("/")
+
+    # Vérifie que l'en-tête de version est bien présent dans la réponse
+    assert resp.status_code == 200
+    assert resp.headers["X-Visites-Version"] == "0.1.0"

@@ -31,7 +31,9 @@ async def metrics_middleware(request: Request, call_next):
 
 @app.get("/")
 def root(response: Response):
+    # Incrémente le compteur et ajoute la version de l'application dans l'en-tête HTTP
     n = r.incr("visites")
+    response.headers["X-Visites-Version"] = "0.1.0"
     return {"visites": n}
 
 
