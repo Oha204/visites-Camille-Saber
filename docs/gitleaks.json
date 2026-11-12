@@ -1,0 +1,42 @@
+[
+ {
+  "Description": "AWS",
+  "StartLine": 2,
+  "EndLine": 2,
+  "StartColumn": 23,
+  "EndColumn": 42,
+  "Match": "AKIAIOSFODNN7EXAMPLE",
+  "Secret": "AKIAIOSFODNN7EXAMPLE",
+  "File": "app/old_settings.py",
+  "SymlinkFile": "",
+  "Commit": "2612e99cce4ce6b4c111281d33494b5331943512",
+  "Entropy": 3.6841838,
+  "Author": "Camille Janin",
+  "Email": "cmille.jn@gmail.com",
+  "Date": "2026-11-12T15:45:04Z",
+  "Message": "add historical secret",
+  "Tags": [],
+  "RuleID": "aws-access-token",
+  "Fingerprint": "2612e99cce4ce6b4c111281d33494b5331943512:app/old_settings.py:aws-access-token:2"
+ },
+ {
+  "Description": "Generic API Key",
+  "StartLine": 1,
+  "EndLine": 1,
+  "StartColumn": 5,
+  "EndColumn": 66,
+  "Match": "SECRET_ACCESS_KEY = \"abcdefghijklmnopqrstuvwxyz1234567890ABCD\"",
+  "Secret": "abcdefghijklmnopqrstuvwxyz1234567890ABCD",
+  "File": "app/old_settings.py",
+  "SymlinkFile": "",
+  "Commit": "2612e99cce4ce6b4c111281d33494b5331943512",
+  "Entropy": 5.321928,
+  "Author": "Camille Janin",
+  "Email": "cmille.jn@gmail.com",
+  "Date": "2026-11-12T15:45:04Z",
+  "Message": "add historical secret",
+  "Tags": [],
+  "RuleID": "generic-api-key",
+  "Fingerprint": "2612e99cce4ce6b4c111281d33494b5331943512:app/old_settings.py:generic-api-key:1"
+ }
+]

@@ -1,10 +1,10 @@
 # Questions d'observation TP1
 
 ## Q1. Combien de temps s'est écoulé entre votre premier commit et sa fusion sur main ?
-premier commit à ..., fusion à ... 
+premier commit à ..., fusion à ...
 
 ## Q2. Qu'est-ce qui, dans ce TP, ne dépend pas de GitHub ?
-Indépendant : configuration Git, signature SSH, branches, rebase, pre-commit, commits conventionnels. 
+Indépendant : configuration Git, signature SSH, branches, rebase, pre-commit, commits conventionnels.
 Dépendant : commandes `gh`, règles de protection, interface de PR.
 
 ## Q3. Pourquoi signer les commits si la forge vérifie déjà qui pousse ?
@@ -22,3 +22,6 @@ Non. Le hook pre-commit est local à chaque développeur. Un collègue qui ne l'
 
 ### Q3. Combien de temps un secret poussé sur une forge publique reste-t-il privé?
 Quelques secondes à quelques minutes au maximum. Sur une forge publique, un secret doit être considéré comme compromis dès sa publication.
+
+## étape 5 : commit fautif + Discussion en binôme + Rotation
+cf rendu PDF
