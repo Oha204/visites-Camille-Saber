@@ -36,26 +36,29 @@ R: Si je tente de faire un commit avec un fichier Python mal formaté et que des
 ## étape 1 : Règles de protection de main
 Q: pourquoi « dismiss stale approvals » ? Quel scénario évite-t-il ?
 
-R: 
+R: L'option dismiss stale approvals permet d'annuler automatiquement les validations déjà données lorsqu'une nouvelle modification est ajoutée à la pull request. Elle évite qu'une PR soit fusionnée avec des changements qui n'ont jamais été relus par les reviewers après leur approbation initiale
 
 ## étape 2 : CODEOWNERS
 Q: que se passe-t-il si un propriétaire de code est le seul à pouvoir approuver et qu'il est absent ? Quelle règle de l'organisation faut-il prévoir ?
 
-R: 
+R: Si le propriétaire du code est le seul autorisé à approuver une modification et qu'il est absent (congés par exemple), la PR peut rester bloquée et ne jamais être fusionnée. Il faut donc prévoir une règle avec plusieurs CODEOWNERS afin qu'au moins une autre personne puisse approuver.
 
 ## étape 3 : Dependabot
 Q: une PR Dependabot est ouverte par un robot ; avec vos règles, qui doit l'approuver et pourquoi est-ce justement une bonne chose ?
 
-R: 
+R: La PR Dependabot doit être approuvée par l'un des membres du groupe (A ou B). C'est important car même si la modification est proposée automatiquement, un humain doit vérifier qu'elle est correcte et sans impact négatif (régression) avant la fusion.
 
 ## étape 4 : gitleaks en pre-commit : planter un faux secret
 Q: gitleaks a-t-il détecté le secret grâce au nom de la variable ou grâce à la valeur ? Testez en renommant la variable
 
-R: 
+R: Après avoir renommé la variable, Gitleaks détecte toujours le secret. La détection se fait donc grâce à la valeur du secret plutôt qu'au nom de la variable.
 
 ## Questions d'observation
 ### Q1. Quelles règles de protection auraient empêché le secret d'arriversur main ?
+La revue obligatoire des PR, les contrôles automatiques (Gitleaks) et la protection de la branche main auraient pu empêcher le secret d'être fusionné.
 
 ### Q2. gitleaks en pre-commit protège-t-il un collègue qui n'a pas installé pre-commit ?
+Non. Le hook pre-commit est local à chaque développeur. Un collègue qui ne l'a pas installé n'est pas protégé. Il faut donc également un contrôle Gitleaks côté serveur (CI/PR)
 
 ### Q3. Combien de temps un secret poussé sur une forge publique reste-t-il privé?
+Quelques secondes à quelques minutes au maximum. Sur une forge publique, un secret doit être considéré comme compromis dès sa publication.
