@@ -52,13 +52,3 @@ R: La PR Dependabot doit être approuvée par l'un des membres du groupe (A ou B
 Q: gitleaks a-t-il détecté le secret grâce au nom de la variable ou grâce à la valeur ? Testez en renommant la variable
 
 R: Après avoir renommé la variable, Gitleaks détecte toujours le secret. La détection se fait donc grâce à la valeur du secret plutôt qu'au nom de la variable.
-
-## Questions d'observation
-### Q1. Quelles règles de protection auraient empêché le secret d'arriversur main ?
-La revue obligatoire des PR, les contrôles automatiques (Gitleaks) et la protection de la branche main auraient pu empêcher le secret d'être fusionné.
-
-### Q2. gitleaks en pre-commit protège-t-il un collègue qui n'a pas installé pre-commit ?
-Non. Le hook pre-commit est local à chaque développeur. Un collègue qui ne l'a pas installé n'est pas protégé. Il faut donc également un contrôle Gitleaks côté serveur (CI/PR)
-
-### Q3. Combien de temps un secret poussé sur une forge publique reste-t-il privé?
-Quelques secondes à quelques minutes au maximum. Sur une forge publique, un secret doit être considéré comme compromis dès sa publication.
