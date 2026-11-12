@@ -51,5 +51,5 @@ R: La PR Dependabot doit être approuvée par l'un des membres du groupe (A ou B
 ## étape 4 : gitleaks en pre-commit : planter un faux secret
 Q: gitleaks a-t-il détecté le secret grâce au nom de la variable ou grâce à la valeur ? Testez en renommant la variable
 
-R: Après avoir renommé la variable, Gitleaks détecte toujours le secret. La détection se fait donc grâce à la valeur du secret plutôt qu'au nom de la variable.test
-test2
+R: Après avoir renommé la variable, Gitleaks détecte toujours le secret. La détection se fait donc grâce à la valeur du secret plutôt qu'au nom de la variable.
+R: Après avoir renommé la variable, Gitleaks détecte toujours le secret. La détection se fait donc grâce à la valeur du secret plutôt qu'au nom de la variable.
