@@ -31,3 +31,31 @@ Q: que se passe-t-il si vous committez avec un fichier Python mal formaté ? Et 
 
 R: Si je tente de faire un commit avec un fichier Python mal formaté et que des hooks de pré-commit sont configurés, le commit est bloqué. Les outils signalent les erreurs de formatage et demandent de les corriger avant de pouvoir valider le commit.
 
+# TP 2 : Protéger le dépôt
+
+## étape 1 : Règles de protection de main
+Q: pourquoi « dismiss stale approvals » ? Quel scénario évite-t-il ?
+
+R: 
+
+## étape 2 : CODEOWNERS
+Q: que se passe-t-il si un propriétaire de code est le seul à pouvoir approuver et qu'il est absent ? Quelle règle de l'organisation faut-il prévoir ?
+
+R: 
+
+## étape 3 : Dependabot
+Q: une PR Dependabot est ouverte par un robot ; avec vos règles, qui doit l'approuver et pourquoi est-ce justement une bonne chose ?
+
+R: 
+
+## étape 4 : gitleaks en pre-commit : planter un faux secret
+Q: gitleaks a-t-il détecté le secret grâce au nom de la variable ou grâce à la valeur ? Testez en renommant la variable
+
+R: 
+
+## Questions d'observation
+### Q1. Quelles règles de protection auraient empêché le secret d'arriversur main ?
+
+### Q2. gitleaks en pre-commit protège-t-il un collègue qui n'a pas installé pre-commit ?
+
+### Q3. Combien de temps un secret poussé sur une forge publique reste-t-il privé?
