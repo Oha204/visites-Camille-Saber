@@ -1,3 +1,5 @@
+[![CI](https://github.com/Oha204/visites-Camille-Saber/actions/workflows/ci.yml/badge.svg)](https://github.com/Oha204/visites-Camille-Saber/actions/workflows/ci.yml)
+
 # TP - DevOps
 
 Application fil rouge du module Intro DevOps. À compléter au TP01.
