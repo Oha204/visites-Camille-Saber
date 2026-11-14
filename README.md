@@ -67,13 +67,15 @@ R: Le déclenchement est possible car l'événement pull_request utilise le fich
 ### étape 2 : Couverture en artefact et pre-commit en CI
 Q1: quel fichier est le moins couvert ?
 
-R:
+R: Selon la capture (cf PDF "Rendu TP3"), aucun fichier n'est moins couvert que les autres
 
 Q2: faut-il échouer le pipeline sous un seuil de couverture ? Quel seuil et pourquoi pas 100 % ?
 
 R: Oui, un seuil de couverture permet de maintenir une qualité minimale des tests et d'éviter les régressions. Un seuil de 80 % à 90 % est souvent retenu. Un objectif de 100 % n'est pas pertinent, car couvrir toutes les lignes ne garantit pas l'absence de bugs et peut conduire à écrire des tests complexes ou peu utiles
 
 ### étape 3 : Matrice 3.12 / 3.13 et cache pip : mesurer
+Notez la durée du job actuel (page de l'exécution) : 1m1s
+
 Q:  avec la matrice, combien de checks apparaissent sur la PR ? Lequel faut-il exiger dans le ruleset ?
 
 R:
