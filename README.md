@@ -78,19 +78,24 @@ Notez la durée du job actuel (page de l'exécution) : 1m1s
 
 Q:  avec la matrice, combien de checks apparaissent sur la PR ? Lequel faut-il exiger dans le ruleset ?
 
-R:
+R: Deux checks apparaissent : test (py3.12) et test (py3.13).
+Il faut exiger les deux checks. Ainsi, la PR ne pourra être fusionnée que si l'application fonctionne correctement sur Python 3.12 et sur Python 3.13. Cela évite d'introduire une régression spécifique à une version de Python.
 
 ### étape 4 : Casser un test, observer, rendre le contrôle obligatoire
 Q: que se passe-t-il si un administrateur coche « bypass » ? Qui doit avoir ce droit et comment est-ce tracé ?
 
-R:
+R: Le bypass permet à un administrateur de contourner les règles de protection de la branche et de fusionner une PR même si les contrôles requis échouent ou sont absents.
+Qui doit avoir ce droit ? : Ce droit doit être limité à un très petit nombre de personnes responsables du dépôt (mainteneurs, responsables techniques ou administrateurs du projet). Il ne doit pas être accordé à tous les développeurs.
+Comment est-ce tracé ? : GitHub conserve une trace de l'action dans l'historique de la PR et dans les journaux d'audit. Il est donc possible d'identifier qui a effectué le bypass, quand il a été réalisé et sur quelle PR
 
 ### étape 5 : Exécuter le même workflow en local avec act
+Q: qu'est ce qui est identique, qu'est ce qui échoue (cache, artefacts) et pourquoi ?
+
+R: Avec act, les mêmes étapes que sur GitHub Actions sont exécutées : récupération du code (checkout), installation de Python, installation des dépendances, exécution de pre-commit, vérifications Ruff et lancement des tests Pytest. Les résultats des tests sont identiques à ceux obtenus sur GitHub.
+En revanche, certaines fonctionnalités liées à l'infrastructure GitHub peuvent échouer. Lors de mon essai, l'étape actions/upload-artifact a échoué avec l'erreur Unable to get the ACTIONS_RUNTIME_TOKEN env variable. Cela s'explique par le fait que ce jeton est fourni automatiquement par les runners GitHub mais n'existe pas dans l'environnement local utilisé par act.
+Concernant le cache, le comportement peut également différer. Lors d'une première exécution avec act, le cache n'était pas disponible (cache-hit=false) car l'environnement local ne dispose pas du même mécanisme de cache que GitHub Actions. Les performances observées peuvent donc être différentes de celles obtenues sur GitHub.
 Q: act remplace-t-il GitHub Actions pour valider une PR ? Dans quels cas est-il indispensable (TP07) ?
 
-R:
+R: Non. act permet de tester localement un workflow GitHub Actions avant de pousser du code, mais la validation officielle d'une PR reste réalisée par GitHub Actions.
 
-### étape 6 : Badge, journal et questions
-Q:
-
-R:
+Il reste particulièrement utile pour développer ou déboguer un workflow GitHub Actions sans devoir effectuer de nombreux commits et pushes. Il permet de tester rapidement un changement de pipeline, de diagnostiquer une erreur d'exécution ou de vérifier un comportement avant d'envoyer les modifications vers GitHub
