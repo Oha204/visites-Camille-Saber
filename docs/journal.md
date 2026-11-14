@@ -22,6 +22,9 @@ Non. Le hook pre-commit est local à chaque développeur. Un collègue qui ne l'
 
 ### Q3. Combien de temps un secret poussé sur une forge publique reste-t-il privé?
 Quelques secondes à quelques minutes au maximum. Sur une forge publique, un secret doit être considéré comme compromis dès sa publication.
+<<<<<<< Updated upstream
 
 ## étape 5 : commit fautif + Discussion en binôme + Rotation
 cf rendu PDF
+=======
+>>>>>>> Stashed changes
