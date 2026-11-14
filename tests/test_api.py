@@ -43,4 +43,4 @@ def test_root_has_version_header(client):
 
     # Vérifie que l'en-tête de version est bien présent dans la réponse
     assert resp.status_code == 200
-    assert resp.headers["X-Visites-Version"] == "0.1.0"
+    assert resp.headers["X-Visites-Version-BROKEN"] == "0.1.0"
