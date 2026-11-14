@@ -22,9 +22,25 @@ Non. Le hook pre-commit est local à chaque développeur. Un collègue qui ne l'
 
 ### Q3. Combien de temps un secret poussé sur une forge publique reste-t-il privé?
 Quelques secondes à quelques minutes au maximum. Sur une forge publique, un secret doit être considéré comme compromis dès sa publication.
-<<<<<<< Updated upstream
 
-## étape 5 : commit fautif + Discussion en binôme + Rotation
+### étape 5 : commit fautif + Discussion en binôme + Rotation
 cf rendu PDF
-=======
->>>>>>> Stashed changes
+
+## Questions d'observation TP3
+
+### Q1. Combien de temps dure votre pipeline, et qu'est-ce qui prend le plus de temps ?
+Notre pipeline dure environ 1m4s. L'étape qui nous prends le plus de temps est l'étape "Run pre-commit run --all-files" (environ 40s) car elle doit initialiser puis exécuter les différents hooks (Ruff, Gitleaks, vérifications YAML, etc.).
+
+### Q2. Qu'est-ce qui empêche un membre de contourner le pipeline ?
+Ce qui empêche un membre de contourner le pipeline est la protection de la branche main via un ruleset GitHub. Les checks test (py3.12) et test (py3.13) ont été définis comme obligatoires. Tant qu'un de ces contrôles échoue, GitHub bloque la fusion de la Pull Request et empêche l'intégration du code dans main.
+
+Seuls les administrateurs disposant du droit de bypass peuvent exceptionnellement contourner cette protection.
+
+### Q3. Quelles lignes de ci.yml changeriez-vous pour GitLab CI ou Gitea Actions ?
+Je conserverais les commandes (pip install, pre-commit, ruff, pytest) mais je remplacerais les lignes spécifiques à GitHub Actions (on, runs-on, actions/checkout, actions/setup-python, actions/upload-artifact) par leur équivalent GitLab CI ou Gitea Actions.
+
+### étape 3 : Matrice 3.12 / 3.13 et cache pip : mesurer
+Notez la durée du job actuel (page de l'exécution) : 1m1s
+
+1e run (cache miss) : 1m4s
+2e run (cache hit)  : 1m4s
